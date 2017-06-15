@@ -7,9 +7,9 @@ array = Array.new
 File.open(filename) do |f|
   f.each_line.lazy.each do |line|
     array << line
-    puts array.size
+    if array.size > selection
+      array.sort.drop(1)
+    end
   end
+  puts array.join(' ')
 end
-
-puts array.join(' ')
-puts selection
