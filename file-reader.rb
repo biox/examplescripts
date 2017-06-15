@@ -1,8 +1,15 @@
 #!/usr/bin/env ruby
 
-array = ['something','else']
+filename = ARGV[0]
+selection = ARGV[1]
+array = Array.new
 
-File.open('largefile') do |f|
-  f.each_line.lazy.select { |line| line.match(/stuff/i) }.first(5)
-  puts array.join(' ')
+File.open(filename) do |f|
+  f.each_line.lazy.each do |line|
+    array << line
+    puts array.size
+  end
 end
+
+puts array.join(' ')
+puts selection
