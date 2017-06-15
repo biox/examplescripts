@@ -5,10 +5,10 @@ selection = ARGV[1].to_i
 array = Array.new
 
 File.open(filename) do |f|
-  f.each_line.lazy.each do |line|
+  f.each_line do |line|
     array << line
     if array.size > selection
-      array.sort.drop(1)
+      array = array.sort.drop(1)
     end
   end
   puts array.join(' ')
