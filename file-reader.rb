@@ -6,10 +6,10 @@ array = Array.new
 
 File.open(filename) do |f|
   f.each_line do |line|
-    array << line
+    array << line.to_i
     if array.size > selection
       array = array.sort.drop(1)
     end
   end
-  puts array.join(' ')
+  puts array.sort.join(' ')
 end
