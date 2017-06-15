@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
-# TODO: make args
-File.open('largefile') do |file|
-  file.each_line do |line|
-    puts line
-  end
+
+array = ['something','else']
+
+File.open('largefile') do |f|
+  f.each_line.lazy.select { |line| line.match(/stuff/i) }.first(5)
+  puts array.join(' ')
 end
